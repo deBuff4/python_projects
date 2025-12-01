@@ -7,3 +7,13 @@ class Employee:
 
     def get_info(self):
         return self.name, self.__id
+
+class Manager(Employee):
+    def __init__(self, name, ID, department):
+        self.department = department
+        super().__init__(name, ID)
+
+    def manage_project(self):
+        pass
+
+    
