@@ -7,4 +7,3 @@ class Employee:
 
     def get_info(self):
         return self.name, self.__id
-    
