@@ -26,13 +26,18 @@ class Technician:
 class TechManager(Manager, Technician):
 
     # Не работают, разобраться с передачей информации о сотрудниках в список
-    list_of_employee = ()
-    def add_employee(self, name, ID, department, specialization):
-        super().name = name
+    def __init__(self, name, ID, department):
+        super().__init__(name, ID, department)
+        self.list = None
+
+    def add_employee(self, ID, name, department, specialization):
         super().ID = ID
+        super().name = name
         super().department = department
         super().specialization = specialization
-        list_of_employee.append(name, ID, department, specialization)
+        self.employee_info = [ID, name, department, specialization]
+
 
     def get_team_info(self):
-        return list_of_employee
+        return self.list
+
