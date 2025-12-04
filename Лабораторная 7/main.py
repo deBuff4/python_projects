@@ -1,16 +1,19 @@
+from array import array
+
+
 class Employee:
 
-    def __init__(self, name = None, ID = None):
+    def __init__(self, name = None,identification_num = None):
         self.name = name
-        self.__id = ID
+        self.__identification_num = identification_num
 
     def get_info(self):
-        return self.name, self.__id
+        return self.name, self.__identification_num
 
 class Manager(Employee):
-    def __init__(self, name, ID, department):
+    def __init__(self, name, identification_num, department):
         self.department = department
-        super().__init__(name, ID)
+        super().__init__(name, identification_num)
 
     def manage_project(self):
         pass
@@ -25,19 +28,16 @@ class Technician:
 
 class TechManager(Manager, Technician):
 
-    # Не работают, разобраться с передачей информации о сотрудниках в список
-    def __init__(self, name, ID, department):
-        super().__init__(name, ID, department)
-        self.list = None
-
-    def add_employee(self, ID, name, department, specialization):
-        super().ID = ID
-        super().name = name
-        super().department = department
-        super().specialization = specialization
-        self.employee_info = [ID, name, department, specialization]
-
-
+    def __init__(self, identification_num, name, department):
+        super().__init__(name, identification_num, department)
+        self.list = []
+    def add_employee(self, identification_num, name, department, specialization):
+        user_data = {'ID': identification_num, 'name': name, 'department': department, 'specialization': specialization}
+        self.list.append(user_data)
     def get_team_info(self):
         return self.list
 
+test1 = TechManager("John", 1, "Couch")
+test1.add_employee(2, "name", "department", "spec")
+test1.add_employee(3, "Name2", "Department2", "Specialization2")
+print(test1.get_team_info())
