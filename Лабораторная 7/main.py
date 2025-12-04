@@ -1,6 +1,3 @@
-from array import array
-
-
 class Employee:
 
     def __init__(self, name = None,identification_num = None):
